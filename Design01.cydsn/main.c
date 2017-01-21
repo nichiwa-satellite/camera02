@@ -47,6 +47,7 @@ uint8 take_picture[]    =  { 0x56, 0x00, 0x36, 0x01, 0x00 };
 uint8 read_datasize[]   =  { 0x56, 0x00, 0x34, 0x01, 0x00 };
 uint8 load_data[]       =  { 0x56, 0x00, 0x32, 0x0C, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xCA, 0x6C, 0x00, 0xFF };
 
+PSC_STATE PSC_PROG_STATE;           //status
 
 bool PSC_Initialize();                  //INITIALIZE
 bool PSC_CmdHandle(PSC_CMD*);                   //CommandHandling
@@ -54,8 +55,8 @@ bool PSC_CmdHandle(PSC_CMD*);                   //CommandHandling
 bool PSC_GetCommand(PSC_CMD*);    //Get Command form Device
 bool PSC_SndCommand(PSC_CMD*);    //Send Command to Device
 
-bool psc_GetRecvLine(PSC_CMD*);
-bool psc_GetRecvChar(PSC_CMD*);
+bool psc_GetRecvLine(DEV_ID, char*);
+bool psc_GetRecvChar(DEV_ID, char*);
 
 bool psc_SndDataLine(PSC_CMD*);
 
@@ -99,15 +100,40 @@ bool PSC_Initialize()
     CyGlobalIntEnable; /* Enable global interrupts. */
     UART_TO_CAMERA_Init();
     UART_TO_COMM_Init();
+    PSC_PROG_STATE = PSC_ST_IDLE;
     return true;
 }
 
 bool PSC_GetCommand(PSC_CMD* pstData)
 {
-    if( psc_GetRecvLine(pstData) == false )
+    DEV_ID dev_id;
+    char cmd[SZ_COMMAND];
+    
+    switch(PSC_PROG_STATE)
+    {
+        case PSC_ST_IDLE:
+            dev_id = DEV_ID_COMM;
+            break;
+        case PSC_ST_RUN:
+            dev_id = DEV_ID_CAM;
+            break;
+        default:
+            dev_id = DEV_ID_MAX;
+            break;
+    }
+    if( dev_id == DEV_ID_MAX)
     {
         return false;
     }
+    
+    if( psc_GetRecvLine(dev_id, cmd) == false )
+    {
+            return false;
+    }
+    
+    memcpy(pstData->cmd, cmd, sizeof(pstData->cmd));
+    pstData->dev_id = dev_id;
+    
     return true;
 }
 

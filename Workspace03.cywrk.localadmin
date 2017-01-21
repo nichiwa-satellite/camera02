@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Workspace03\Design01\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Workspace03\Design01\Design01.cydwr\Pins">
 <ExpandedNodeIds>
 <v>Workspace03</v>
 <v>Workspace03\Design01</v>
@@ -253,7 +253,19 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\Design01.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Design01.cydsn\main.c" />
+<name v=".\Design01.cydsn\cyapicallbacks.h" />
+<name v=".\Design01.cydsn\Design01.cydwr" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1015, 388" SelectedTabbedMdiWindow="64accc56-e92e-4afa-a4af-6957ab964319"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="3910ba0e-3caf-42b1-9155-450f54a67e36" /><DocumentWindow Key="16e754f4-54f1-43d7-b5c6-3ca8b0c70922" Guid="e25ed64f-e475-4a97-a432-30ec69842838" /><DocumentWindow Key="2351c4df-7a3d-4550-9e67-8e481b7ac139" Guid="64accc56-e92e-4afa-a4af-6957ab964319" /><DocumentWindow Key="43a76304-a881-43d0-822c-f89784af8789" Guid="a9d9fd8a-b4bd-474c-b8b5-ced47ad2e0dd" /><DocumentWindow Key="0c5a3894-9f8a-4395-9620-18d385f7e290" Guid="4f81deed-87a8-462e-b2c5-a2e10610acdb" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
